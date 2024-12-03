@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Încărcare Fișier</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Aplicație Interactivă de Procesare a Datelor</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="csvfile">Încarcă un fișier CSV:</label>
+        <input type="file" id="csvfile" name="csvfile" accept=".csv">
+        <button type="submit">Încarcă</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+</html>

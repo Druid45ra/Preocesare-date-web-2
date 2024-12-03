@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date Încărcate</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Fișier Încărcat: {{ filename }}</h1>
+    <h2>Primele 10 linii:</h2>
+    <div>{{ table | safe }}</div>
+    <h2>Analiza datelor:</h2>
+    <form action="/analyze/{{ filename }}" method="post">
+        <label for="column">Selectează coloana:</label>
+        <input type="text" id="column" name="column" placeholder="Nume coloana" required>
+        <label for="operation">Operație:</label>
+        <select id="operation" name="operation">
+            <option value="mean">Media</option>
+            <option value="sum">Suma</option>
+        </select>
+        <button type="submit">Analizează</button>
+    </form>
+    <a href="/">Înapoi la încărcare</a>
+</body>
+</html>
